@@ -13,36 +13,39 @@ export default function TextForm(props) {
     const upperCaseHandler = ()=> {
         let newText = text.toUpperCase();
         setText(newText);
+        props.alert("converted to uppercase", "success");
     }
 
     // click handler on button to change entered text into uppercase.
     const lowerCaseHandler = ()=> {
         let newText = text.toLowerCase();
         setText(newText);
+        props.alert("converted to lowercase", "success");
     }
 
      // click handler on button to change entered text into uppercase.
      const clearTextHandler = ()=> {
         let newText = '';
         setText(newText);
+        props.alert("text cleared", "success");
     }
 
     //copy text to clipboard handler.
     const copyTextHandler = ()=>{
         navigator.clipboard.writeText(text).then(function() {
-            alert('Copying to clipboard was successful!');
+            props.alert('Copying to clipboard was successful!', 'success');
           }, function(err) {
-            alert('Could not copy text: ', err);
+            props.alert('Could not copy text: ', 'danger');
           });
     };
 
     // palindrome handler.
     const checkPalindromeHandler = () => {
         if(text===text.split("").reverse().join("")){
-            alert("Its a palindrome.");
+            props.alert("Its a palindrome.", "success");
         }
         else{
-            alert("Not a palindrome!")
+            props.alert("Not a palindrome!", "warning")
         }
     };
 
@@ -50,6 +53,7 @@ export default function TextForm(props) {
     const removeExtraSpaceHandler = () => {
         let newText = text.split(/[ ]+/).join(" ");;
         setText(newText);
+        props.alert("extra space removed", "success");
     };
 
     return (
