@@ -61,12 +61,12 @@ export default function TextForm(props) {
             <div className="mb-3" style={{color:props.mode==='light'?'#212529':'white'}}>
                 <h1>{props.heading}</h1>
                 <textarea className="form-control" style={{backgroundColor:props.mode==='light'?'white':'#212529', color:props.mode==='light'?'#212529':'white'}} value={text} onChange={onChangeHandler} id="myBox" rows="8"></textarea>
-                <button className="btn btn-primary mt-3 mx-1" onClick={upperCaseHandler}>Convert to upper case</button>
-                <button className="btn btn-primary mt-3 mx-1" onClick={lowerCaseHandler}>Convert to lower case</button>
-                <button className="btn btn-primary mt-3 mx-1" onClick={clearTextHandler}>Clear Text</button>
-                <button className="btn btn-primary mt-3 mx-1" onClick={copyTextHandler}>Copy Text</button>
-                <button className="btn btn-primary mt-3 mx-1" onClick={checkPalindromeHandler}>Check Palindrome</button>
-                <button className="btn btn-primary mt-3 mx-1" onClick={removeExtraSpaceHandler}>Remove Extra Space</button>
+                <button disabled={text.split(/\s+/).filter(elem => elem.length !== 0).length <= 0} className="btn btn-secondary mt-3 mx-1" onClick={upperCaseHandler}>Convert to upper case</button>
+                <button disabled={text.split(/\s+/).filter(elem => elem.length !== 0).length <= 0} className="btn btn-secondary mt-3 mx-1" onClick={lowerCaseHandler}>Convert to lower case</button>
+                <button disabled={text.split(/\s+/).filter(elem => elem.length !== 0).length <= 0} className="btn btn-secondary mt-3 mx-1" onClick={clearTextHandler}>Clear Text</button>
+                <button disabled={text.split(/\s+/).filter(elem => elem.length !== 0).length <= 0}  className="btn btn-secondary mt-3 mx-1" onClick={copyTextHandler}>Copy Text</button>
+                <button disabled={text.split(/\s+/).filter(elem => elem.length !== 0).length <= 0}  className="btn btn-secondary mt-3 mx-1" onClick={checkPalindromeHandler}>Check Palindrome</button>
+                <button disabled={text.split(/\s+/).filter(elem => elem.length !== 0).length <= 0}  className="btn btn-secondary mt-3 mx-1" onClick={removeExtraSpaceHandler}>Remove Extra Space</button>
             </div>
             <div className="container my-2" style={{color:props.mode==='light'?'#212529':'white'}}>
                 <h2>Your text summary</h2>
