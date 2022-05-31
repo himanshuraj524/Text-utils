@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 export default function TextForm(props) {
 
-    const[text, setText] = useState("Enter text here...");
+    const[text, setText] = useState("");
 
     // text change handler -> add the text as user type into the textArea.
     const onChangeHandler = (event)=>{
